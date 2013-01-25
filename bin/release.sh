@@ -131,16 +131,22 @@ EOF
 ##
 ## Create the Ruby GEM
 ##
-rootname="qpid-proton-${VERSION}"
+rootname="qpid-proton-ruby-${VERSION}"
 WORKDIR=$(mktemp -d)
 mkdir -p "${WORKDIR}"
 (
     cd ${WORKDIR}
-    svn export -qr ${REVISION} ${URL}/${BRANCH}/proton-c ${rootname}
-    echo "In ${PWD}:"
-    ls -l
-    cd ${rootname}/bindings/ruby
-    gem build qpid_proton.gemspec
-    cp qpid_proton-*gem ${CURRDIR}
+    svn export -qr ${REVISION} ${URL}/${BRANCH}/proton-c/bindings/ruby ${rootname}
+
+    cat <<EOF > ${rootname}/SVN_INFO
+Repo: ${URL}
+Branch: ${BRANCH}
+Revision: ${REVISION}
+EOF
+
+    tar zcf  ${CURRDIR}/${rootname}.tar.gz ${rootname} \
+      --exclude=spec \
+      --exclude=CMakeLists.txt \
+      --exclude=.gitignore
 )
 
