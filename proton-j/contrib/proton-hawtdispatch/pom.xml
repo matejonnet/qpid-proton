@@ -19,14 +19,14 @@
   <parent>
     <groupId>org.apache.qpid</groupId>
     <artifactId>proton-project</artifactId>
-    <version>99.0.0-fuse-SNAPSHOT</version>
+    <version>0.3.0-fuse-2</version>
     <relativePath>../..</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.apache.qpid</groupId>
   <artifactId>proton-hawtdispatch</artifactId>
-  <version>99.0.0-fuse-SNAPSHOT</version>
+  <version>0.3.0-fuse-2</version>
 
   <properties>
     <hawtbuf-version>1.9</hawtbuf-version>
@@ -37,7 +37,7 @@
     <dependency>
       <groupId>org.apache.qpid</groupId>
       <artifactId>proton</artifactId>
-      <version>99.0.0-fuse-SNAPSHOT</version>
+      <version>0.3.0-fuse-2</version>
     </dependency>
     <dependency>
       <groupId>org.fusesource.hawtdispatch</groupId>
