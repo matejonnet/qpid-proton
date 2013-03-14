@@ -28,6 +28,12 @@
   <version>99.0.0-fuse-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <scm>
+    <connection>scm:git:git://github.com/fusesource/qpid-proton.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:fusesource/qpid-proton.git</developerConnection>
+    <url>https://github.com/fusesource/qpid-proton/blob/trunk-fuse</url>
+  </scm>
+  
   <properties>
     <junit-version>4.10</junit-version>
   </properties>
