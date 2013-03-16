@@ -35,7 +35,7 @@ public abstract class MessageDelivery extends WatchBase {
     private Message message;
     private Buffer encoded;
     public DeliveryImpl delivery;
-    private int sizeHint = 1024*4;
+    private int sizeHint = 32;
 
     static Buffer encode(Message message, int sizeHint) {
         byte[] buffer = new byte[sizeHint];
@@ -61,7 +61,7 @@ public abstract class MessageDelivery extends WatchBase {
     }
 
     public MessageDelivery(Message message) {
-        this(message, encode(message, 1024*4));
+        this(message, encode(message, 32));
     }
 
     public MessageDelivery(Buffer encoded) {
