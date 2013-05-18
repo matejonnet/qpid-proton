@@ -79,8 +79,8 @@ public class JMSMappingOutboundTransformer extends OutboundTransformer {
         long messageFormat;
         try {
             messageFormat = msg.getLongProperty(messageFormatKey);
-        } catch (MessageFormatException e) {
-            return null;
+        } catch (Throwable e) {
+            messageFormat = 0;
         }
 
         Header header = new Header();
