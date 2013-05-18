@@ -30,7 +30,7 @@
 
   <properties>
     <hawtbuf-version>1.9</hawtbuf-version>
-    <hawtdispatch-version>1.12</hawtdispatch-version>
+    <hawtdispatch-version>1.17</hawtdispatch-version>
   </properties>
 
   <dependencies>
