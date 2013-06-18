@@ -19,19 +19,19 @@
   <parent>
     <groupId>org.apache.qpid</groupId>
     <artifactId>proton-project</artifactId>
-    <version>0.3.0-fuse-4</version>
+    <version>99.0.0-fuse-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.apache.qpid</groupId>
   <artifactId>proton</artifactId>
-  <version>0.3.0-fuse-4</version>
+  <version>99.0.0-fuse-SNAPSHOT</version>
 
   <dependencies>
     <dependency>
       <groupId>org.apache.qpid</groupId>
       <artifactId>proton-api</artifactId>
-      <version>0.3.0-fuse-4</version>
+      <version>99.0.0-fuse-SNAPSHOT</version>
     </dependency>
 
     <dependency>
