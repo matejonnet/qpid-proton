@@ -107,7 +107,7 @@ public class AmqpTransport extends WatchBase {
 
                 @Override
                 public void onFailure(Throwable value) {
-                    if( state == CONNECTED ) {
+                    if( state == CONNECTED || state == CONNECTING) {
                         failure = value;
                         disconnect();
                         fireWatches();
