@@ -125,7 +125,7 @@ public class JMSMappingOutboundTransformer extends OutboundTransformer {
         header.setDurable(msg.getJMSDeliveryMode() == DeliveryMode.PERSISTENT ? true : false);
         header.setPriority(new UnsignedByte((byte) msg.getJMSPriority()));
         if( msg.getJMSExpiration() != 0 ) {
-            header.setTtl(new UnsignedInteger((int) msg.getJMSExpiration()));
+            header.setTtl(new UnsignedInteger((int)(msg.getJMSExpiration() - msg.getJMSTimestamp())));
         }
         if( msg.getJMSType()!=null ) {
             if( maMap==null ) maMap = new HashMap();

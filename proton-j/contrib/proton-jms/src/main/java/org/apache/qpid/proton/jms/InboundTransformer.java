@@ -115,11 +115,6 @@ public abstract class InboundTransformer {
         } else {
             jms.setJMSPriority(defaultPriority);
         }
-        if( header.getTtl()!=null ) {
-            jms.setJMSExpiration(header.getTtl().longValue());
-        } else {
-            jms.setJMSExpiration(defaultTtl);
-        }
         if( header.getFirstAcquirer() !=null ) {
             jms.setBooleanProperty(prefixVendor + "FirstAcquirer", header.getFirstAcquirer());
         }
@@ -208,6 +203,16 @@ public abstract class InboundTransformer {
             }
             if( properties.getReplyToGroupId()!=null ) {
                 jms.setStringProperty(prefixVendor + "ReplyToGroupID", properties.getReplyToGroupId());
+            }
+        }
+        
+        if( header.getTtl()!=null ) {
+            jms.setJMSExpiration(jms.getJMSTimestamp()+header.getTtl().longValue());
+        } else {
+            if( defaultTtl == 0 ) {
+              jms.setJMSExpiration(defaultTtl);
+            } else { 
+              jms.setJMSExpiration(jms.getJMSTimestamp()+defaultTtl);
             }
         }
 
