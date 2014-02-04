@@ -204,17 +204,27 @@ public abstract class InboundTransformer {
             if( properties.getReplyToGroupId()!=null ) {
                 jms.setStringProperty(prefixVendor + "ReplyToGroupID", properties.getReplyToGroupId());
             }
-        }
-        
-        if( header.getTtl()!=null ) {
-            jms.setJMSExpiration(jms.getJMSTimestamp()+header.getTtl().longValue());
-        } else {
-            if( defaultTtl == 0 ) {
-              jms.setJMSExpiration(defaultTtl);
-            } else { 
-              jms.setJMSExpiration(jms.getJMSTimestamp()+defaultTtl);
+            if( properties.getAbsoluteExpiryTime()!=null ) {
+                jms.setJMSExpiration(properties.getAbsoluteExpiryTime().getTime());
             }
         }
+
+        // If the jms expiration has not yet been set...
+        if( jms.getJMSExpiration()==0 ) {
+
+            // Then lets try to set it based on the message ttl.
+            long ttl = defaultTtl;
+            if( header.getTtl()!=null ) {
+                ttl = header.getTtl().longValue();
+            }
+            if( ttl == 0 ) {
+              jms.setJMSExpiration(0);
+            } else {
+                jms.setJMSExpiration(System.currentTimeMillis()+ttl);
+            }
+
+        }
+
 
         final Footer fp = amqp.getFooter();
         if( fp !=null ) {
