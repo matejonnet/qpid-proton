@@ -27,7 +27,7 @@
   <description>The Proton system tests execute against either the Java or the C implementations,
 based on the chosen profile.
 
-To execute, run either &quot;mvn test&quot; or &quot;mvn test -P proton-jni&quot;.
+To execute, run either "mvn test" or "mvn test -P proton-jni".
 
 Example of advanced usage (all of the -D flags are optional):
 
@@ -165,7 +165,7 @@ directory &lt;basedir&gt;/build/proton-c.</description>
   <parent>
     <groupId>org.apache.qpid</groupId>
     <artifactId>proton-project</artifactId>
-    <version>0.6.redhat-001-SNAPSHOT</version>
+    <version>0.6.redhat-001</version>
   </parent>
   <scm>
     <url>http://svn.apache.org/viewvc/qpid/proton/</url>
